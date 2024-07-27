@@ -3,11 +3,13 @@
 
 class Paddle
 {
+protected:
+    void Limit();
 private:
+public:
     float x, y;
     float width, height;
     int speed;
-public:
     Paddle(/* args */);
     Paddle(float x, float y, float width, float height, int speed);
     virtual ~Paddle() {}

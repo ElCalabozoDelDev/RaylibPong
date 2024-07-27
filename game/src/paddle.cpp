@@ -33,6 +33,11 @@ void Paddle::Update()
     {
         y += speed;
     }
+    Limit();
+}
+
+void Paddle::Limit()
+{
     if (y <= 0)
     {
         y = 0;

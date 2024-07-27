@@ -4,14 +4,15 @@
 class Ball
 {
 private:
+public:
     float x, y;
     int speedX, speedY;
     int radius;
-public:
     Ball();
     virtual ~Ball() {}
     
     void Draw();
-    void Update();
+    void Update(int &playerScore, int &cpuScore);
+    void PositionReset();
 };
 #endif

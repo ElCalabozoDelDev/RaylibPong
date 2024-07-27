@@ -16,7 +16,7 @@ void Ball::Draw()
     DrawCircle(x, y, radius, RED);
 }
 
-void Ball::Update()
+void Ball::Update(int &playerScore, int &cpuScore)
 {
     x += speedX;
     y += speedY;
@@ -24,8 +24,21 @@ void Ball::Update()
     {
         speedY *= -1;
     }
-    if (x + radius >= GetScreenWidth() || x - radius <= 0)  
+    if (x + radius >= GetScreenWidth())
     {
-        speedX *= -1;
+        playerScore++;
+        PositionReset();
     }
+    if (x - radius <= 0)
+    {
+        cpuScore++;
+        PositionReset();
+    }
+}
+void Ball::PositionReset()
+{
+    x = GetScreenWidth() / 2;
+    y = GetScreenHeight() / 2;
+    speedX = 5;
+    speedY = 5;
 }
